@@ -1,0 +1,88 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact - Shal Rhimba</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <nav>
+        <h1>Shal Rhimba</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="contact-section">
+      <div class="contact-title-row">
+  <img src="images/phone-icon.png" alt="Phone" />
+  <h2>Contact Me</h2>
+</div>
+      <p>Send me a message or connect with me directly.</p>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" name="name" required />
+        <input type="email" placeholder="Your Email" name="email" required />
+        <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p style="margin-top: 1rem;">Or email me directly at: 
+        <a href="mailto:shalrhimba@gmail.com">shalrhimba@gmail.com</a>
+      </p>
+
+      <!-- Hoverable testimonial section -->
+      <section class="testimonial-hover-box">
+        <div class="testimonial-image" id="testimonialImage">
+          <img src="images/contact-banner.png" alt="Contact Me" />
+        </div>
+
+        <div class="testimonial-content" id="testimonialContent">
+          <h3>🌟 What People Say</h3>
+          <div class="testimonial">
+            <p>"Shal’s project on EcoLens really opened my eyes to how powerful design can be for the environment." – <strong>Eric N.</strong></p>
+          </div>
+          <div class="testimonial">
+            <p>"His cybersecurity tips have helped me a lot in staying safe online. Highly recommend!" – <strong>Mary K.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-comment-section">
+  <div class="contact-image">
+    <img src="images/contact-side.png" alt="Contact Me" />
+  </div>
+
+  <div class="comment-box">
+    <h3>Leave a Comment</h3>
+    <form id="commentForm">
+      <input type="text" id="commentName" placeholder="Your Name" required />
+      <textarea id="commentText" placeholder="Your Comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+
+    <div id="commentList"></div>
+  </div>
+</section>
+
+    </main>
+  </div>
+
+  <!-- Floating WhatsApp icon -->
+  <a href="https://wa.me/254111819808" class="whatsapp-float" target="_blank">
+    <img src="images/whatsapp-icon.png" alt="Chat on WhatsApp" />
+  </a>
+
+  <footer>
+    <p>&copy; 2025 Shal Rhimba | All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

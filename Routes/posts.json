@@ -1,0 +1,26 @@
+[
+  {
+    "title": "My First Year in Cybersecurity",
+    "icon": "📚",
+    "summary": "Exploring Linux, networking, and ethical hacking. It's a deep journey into protecting systems and data.",
+    "link": "blog-detail.html"
+  },
+  {
+    "title": "Why I Built EcoLens",
+    "icon": "🌍",
+    "summary": "Using tech to promote environmental awareness through photography.",
+    "link": "ecolens-story.html"
+  },
+  {
+    "title": "What Linux Taught Me",
+    "icon": "🐧",
+    "summary": "Lessons from using the terminal, troubleshooting, and system management.",
+    "link": "learning-linux.html"
+  },
+  {
+    "title": "Why I Chose Cybersecurity",
+    "icon": "🔐",
+    "summary": "A calling to defend digital spaces and build cyber trust in Africa.",
+    "link": "why-cyber.html"
+  }
+]
