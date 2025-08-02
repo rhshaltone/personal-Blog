@@ -1,8 +1,37 @@
-[
-  {
-    "id": 1,
-    "title": "Why I Built EcoLens",
-    "content": "EcoLens started as a creative way to showcase my friend's stunning nature photography...",
-    "date": "2025-07-11"
-  }
-]
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Welcome to My Personal Blog",
+      "content": "Welcome to my personal blog! This is where I'll be sharing my thoughts on technology, cybersecurity, Linux, and various projects I'm working on. I'm passionate about learning and sharing knowledge with the community.\n\nIn this blog, you can expect to find:\n- Technical tutorials and guides\n- Project showcases and case studies\n- Thoughts on industry trends\n- Learning experiences and challenges\n\nI hope you find the content valuable and engaging. Feel free to reach out if you have any questions or suggestions!",
+      "excerpt": "Welcome to my personal blog! This is where I'll be sharing my thoughts on technology, cybersecurity, Linux, and various projects I'm working on...",
+      "author": "Rimba",
+      "date": "2024-08-02",
+      "tags": ["welcome", "introduction", "blog"],
+      "createdAt": "2024-08-02T12:00:00.000Z",
+      "updatedAt": "2024-08-02T12:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Getting Started with Linux: A Beginner's Journey",
+      "content": "Linux has been an incredible journey for me, and I want to share some insights for beginners who are just starting out. When I first switched to Ubuntu, I was overwhelmed by the command line and the different way of doing things.\n\nHere are some key tips for Linux beginners:\n\n1. **Start with a user-friendly distribution** like Ubuntu or Linux Mint\n2. **Learn the basic commands** - ls, cd, pwd, mkdir, rm\n3. **Don't be afraid of the terminal** - it's actually quite powerful once you get used to it\n4. **Join the community** - Linux users are generally very helpful\n5. **Practice regularly** - set up a virtual machine if needed\n\nThe learning curve can be steep, but the rewards are worth it. Linux gives you more control over your system and helps you understand how computers really work.",
+      "excerpt": "Linux has been an incredible journey for me, and I want to share some insights for beginners who are just starting out...",
+      "author": "Rimba",
+      "date": "2024-07-30",
+      "tags": ["linux", "tutorial", "beginners"],
+      "createdAt": "2024-07-30T10:00:00.000Z",
+      "updatedAt": "2024-07-30T10:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Why I Chose Cybersecurity as My Career Path",
+      "content": "Choosing cybersecurity as a career path wasn't something I planned from the beginning, but it turned out to be one of the best decisions I've made. Here's why I'm passionate about this field:\n\n**The Constant Challenge**: Cybersecurity is never boring. New threats emerge daily, and you're constantly learning and adapting. It's like solving puzzles all day long.\n\n**Making a Real Difference**: In cybersecurity, you're literally protecting people, businesses, and critical infrastructure. Your work has a direct impact on society.\n\n**Growing Demand**: The field is expanding rapidly, with plenty of opportunities for growth and specialization.\n\n**Diverse Skill Set**: You need technical skills, analytical thinking, communication abilities, and business understanding.\n\n**Community**: The cybersecurity community is incredibly supportive and collaborative.\n\nIf you're considering a career in cybersecurity, I'd encourage you to start learning the basics, get some hands-on experience, and connect with professionals in the field.",
+      "excerpt": "Choosing cybersecurity as a career path wasn't something I planned from the beginning, but it turned out to be one of the best decisions I've made...",
+      "author": "Rimba",
+      "date": "2024-07-25",
+      "tags": ["cybersecurity", "career", "motivation"],
+      "createdAt": "2024-07-25T14:00:00.000Z",
+      "updatedAt": "2024-07-25T14:00:00.000Z"
+    }
+  ]
+}
