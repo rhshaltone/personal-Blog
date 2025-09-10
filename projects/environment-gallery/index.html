@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Gallery - Shal Rhimba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-leaf"></i> Environment Gallery</h1>
+            <p>Celebrating our planet's beauty and raising environmental awareness</p>
+        </header>
+
+        <nav class="filter-nav">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-globe"></i> All
+            </button>
+            <button class="filter-btn" data-filter="forests">
+                <i class="fas fa-tree"></i> Forests
+            </button>
+            <button class="filter-btn" data-filter="oceans">
+                <i class="fas fa-water"></i> Oceans
+            </button>
+            <button class="filter-btn" data-filter="mountains">
+                <i class="fas fa-mountain"></i> Mountains
+            </button>
+            <button class="filter-btn" data-filter="wildlife">
+                <i class="fas fa-paw"></i> Wildlife
+            </button>
+            <button class="filter-btn" data-filter="conservation">
+                <i class="fas fa-recycle"></i> Conservation
+            </button>
+        </nav>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Forest Images -->
+            <div class="gallery-item" data-category="forests">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&h=400&fit=crop" alt="Misty Forest" loading="lazy">
+                <div class="overlay">
+                    <h3>Misty Forest</h3>
+                    <p>Ancient forests are the lungs of our planet</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="forests">
+                <img src="https://images.unsplash.com/photo-1574263867128-86d8c5d085ec?w=500&h=400&fit=crop" alt="Green Forest Path" loading="lazy">
+                <div class="overlay">
+                    <h3>Forest Trail</h3>
+                    <p>Every step in nature is a step towards conservation</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ocean Images -->
+            <div class="gallery-item" data-category="oceans">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&h=400&fit=crop" alt="Ocean Waves" loading="lazy">
+                <div class="overlay">
+                    <h3>Ocean Waves</h3>
+                    <p>Protecting our oceans means protecting our future</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="oceans">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=400&fit=crop" alt="Coral Reef" loading="lazy">
+                <div class="overlay">
+                    <h3>Coral Reef</h3>
+                    <p>Coral reefs are underwater rainforests</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mountain Images -->
+            <div class="gallery-item" data-category="mountains">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop" alt="Mountain Range" loading="lazy">
+                <div class="overlay">
+                    <h3>Mountain Range</h3>
+                    <p>Mountains teach us about resilience and grandeur</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="mountains">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=500&h=400&fit=crop" alt="Alpine Lake" loading="lazy">
+                <div class="overlay">
+                    <h3>Alpine Lake</h3>
+                    <p>Crystal clear waters in pristine environments</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wildlife Images -->
+            <div class="gallery-item" data-category="wildlife">
+                <img src="https://images.unsplash.com/photo-1549366021-9f761d040a94?w=500&h=400&fit=crop" alt="Elephant in savanna" loading="lazy">
+                <div class="overlay">
+                    <h3>African Elephant</h3>
+                    <p>Protecting wildlife preserves biodiversity</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wildlife">
+                <img src="https://images.unsplash.com/photo-1550358864-518d5a2b7e3f?w=500&h=400&fit=crop" alt="Polar Bear" loading="lazy">
+                <div class="overlay">
+                    <h3>Polar Bear</h3>
+                    <p>Climate change affects Arctic wildlife</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Conservation Images -->
+            <div class="gallery-item" data-category="conservation">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&h=400&fit=crop" alt="Solar panels" loading="lazy">
+                <div class="overlay">
+                    <h3>Solar Energy</h3>
+                    <p>Renewable energy for a sustainable future</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="conservation">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=500&h=400&fit=crop" alt="Recycling" loading="lazy">
+                <div class="overlay">
+                    <h3>Recycling</h3>
+                    <p>Reduce, reuse, recycle for a better planet</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Additional Forest Images -->
+            <div class="gallery-item" data-category="forests">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=500&h=400&fit=crop" alt="Redwood Forest" loading="lazy">
+                <div class="overlay">
+                    <h3>Redwood Forest</h3>
+                    <p>Some of Earth's oldest and tallest trees</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Additional Ocean Images -->
+            <div class="gallery-item" data-category="oceans">
+                <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=500&h=400&fit=crop" alt="Sea turtle" loading="lazy">
+                <div class="overlay">
+                    <h3>Sea Turtle</h3>
+                    <p>Marine life depends on clean oceans</p>
+                    <button class="view-btn" onclick="openLightbox(this)">
+                        <i class="fas fa-expand"></i> View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-item">
+                <i class="fas fa-tree"></i>
+                <h3>15 billion</h3>
+                <p>Trees cut down yearly</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-thermometer-three-quarters"></i>
+                <h3>1.1°C</h3>
+                <p>Global warming since 1880</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-trash"></i>
+                <h3>8 million</h3>
+                <p>Tons of plastic in oceans yearly</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-heart"></i>
+                <h3>Together</h3>
+                <p>We can make a difference</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ for our planet by <a href="../../index.html">Shal Rhimba</a></p>
+            <p><a href="../../projects.html">← Back to Projects</a></p>
+        </footer>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle">Title</h3>
+                <p id="lightboxDescription">Description</p>
+            </div>
+            <div class="lightbox-nav">
+                <button id="prevBtn" onclick="navigateLightbox(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextBtn" onclick="navigateLightbox(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
