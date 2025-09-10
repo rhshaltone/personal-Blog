@@ -1538,6 +1538,72 @@ footer p {
   padding: 0;
 }
 
+/* Reader Actions */
+.reader-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px 0;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 30px;
+}
+
+.reader-left,
+.reader-right {
+  display: flex;
+  gap: 10px;
+}
+
+.reader-nav {
+  background: var(--gradient-primary);
+  color: var(--text-white);
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reader-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.reader-nav:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.share-btn,
+.copylink-btn {
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.share-btn:hover,
+.copylink-btn:hover {
+  background: var(--primary-color);
+  color: var(--text-white);
+  transform: translateY(-2px);
+}
+
+.copylink-btn.copied {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--text-white);
+}
+
 /* Empty States */
 .no-posts {
   text-align: center;

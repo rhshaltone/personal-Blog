@@ -8,6 +8,7 @@ class BlogManager {
     this.currentFilter = 'all';
     this.currentSort = 'newest';
     this.searchQuery = '';
+    this.currentPostIndex = -1; // index within filteredPosts
 
     this.initializeBlog();
   }
@@ -211,6 +212,10 @@ Remember: You don't need to learn everything, but you need to keep learning some
     this.readerBody = document.getElementById('readerBody');
     this.readerClose = document.getElementById('readerClose');
     this.readerBackdrop = document.getElementById('readerBackdrop');
+    this.readerPrev = document.getElementById('readerPrev');
+    this.readerNext = document.getElementById('readerNext');
+    this.shareBtn = document.getElementById('shareBtn');
+    this.copyLinkBtn = document.getElementById('copyLinkBtn');
   }
 
   bindEvents() {
@@ -241,12 +246,31 @@ Remember: You don't need to learn everything, but you need to keep learning some
       this.readerBackdrop.addEventListener('click', () => this.closeModal());
     }
 
+    if (this.readerPrev) {
+      this.readerPrev.addEventListener('click', () => this.navigateModal(-1));
+    }
+    if (this.readerNext) {
+      this.readerNext.addEventListener('click', () => this.navigateModal(1));
+    }
+
+    if (this.shareBtn) {
+      this.shareBtn.addEventListener('click', () => this.shareCurrentPost());
+    }
+    if (this.copyLinkBtn) {
+      this.copyLinkBtn.addEventListener('click', () => this.copyCurrentLink());
+    }
+
     // Keyboard events
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.readerModal.classList.contains('show')) {
-        this.closeModal();
+      if (this.readerModal.classList.contains('show')) {
+        if (e.key === 'Escape') this.closeModal();
+        if (e.key === 'ArrowLeft') this.navigateModal(-1);
+        if (e.key === 'ArrowRight') this.navigateModal(1);
       }
     });
+
+    // Deep link open
+    this.openFromURL();
   }
 
   getAllTags() {
@@ -419,6 +443,15 @@ Remember: You don't need to learn everything, but you need to keep learning some
       });
     });
 
+    // Also bind explicit read-more links for accessibility
+    this.postsGrid.querySelectorAll('.read-more').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postId = parseInt(link.dataset.postId);
+        this.openModal(postId);
+      });
+    });
+
     // Read more link events
     this.postsGrid.querySelectorAll('.read-more').forEach(link => {
       link.addEventListener('click', (e) => {
@@ -489,8 +522,10 @@ Remember: You don't need to learn everything, but you need to keep learning some
   }
 
   openModal(postId) {
-    const post = this.posts.find(p => p.id === postId);
-    if (!post) return;
+    const postIndex = this.filteredPosts.findIndex(p => p.id === postId);
+    if (postIndex === -1) return;
+    const post = this.filteredPosts[postIndex];
+    this.currentPostIndex = postIndex;
 
     const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -527,6 +562,12 @@ Remember: You don't need to learn everything, but you need to keep learning some
     this.readerModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
+    // Update nav buttons
+    this.updateModalNavButtons();
+
+    // Update URL and title
+    this.pushURL(post.id, post.title);
+
     // Focus management
     this.readerClose.focus();
   }
@@ -535,6 +576,110 @@ Remember: You don't need to learn everything, but you need to keep learning some
     this.readerModal.classList.remove('show');
     this.readerModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = 'auto';
+    this.currentPostIndex = -1;
+    this.popURL();
+  }
+
+  updateModalNavButtons() {
+    if (!this.readerPrev || !this.readerNext) return;
+    this.readerPrev.disabled = this.currentPostIndex <= 0;
+    this.readerNext.disabled = this.currentPostIndex >= this.filteredPosts.length - 1;
+  }
+
+  navigateModal(direction) {
+    if (this.currentPostIndex === -1) return;
+    let newIndex = this.currentPostIndex + direction;
+    if (newIndex < 0 || newIndex >= this.filteredPosts.length) return;
+    const nextPost = this.filteredPosts[newIndex];
+    this.openModal(nextPost.id);
+  }
+
+  pushURL(postId, title) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('post', String(postId));
+    window.history.pushState({ postId }, '', url.toString());
+    if (title) document.title = `${title} — Shal Rhimba Blog`;
+  }
+
+  popURL() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('post');
+    window.history.pushState({}, '', url.toString());
+    document.title = 'Blog - Shal Rhimba';
+  }
+
+  openFromURL() {
+    const url = new URL(window.location.href);
+    const postIdParam = url.searchParams.get('post');
+    if (postIdParam) {
+      const postId = parseInt(postIdParam);
+      // Wait until posts rendered
+      setTimeout(() => this.openModal(postId), 100);
+    }
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', () => {
+      const currentParam = new URL(window.location.href).searchParams.get('post');
+      if (currentParam) {
+        this.openModal(parseInt(currentParam));
+      } else if (this.readerModal.classList.contains('show')) {
+        this.closeModal();
+      }
+    });
+  }
+
+  shareCurrentPost() {
+    if (this.currentPostIndex === -1) return;
+    const current = this.filteredPosts[this.currentPostIndex];
+    const shareUrl = new URL(window.location.href);
+    shareUrl.searchParams.set('post', String(current.id));
+
+    if (navigator.share) {
+      navigator.share({
+        title: current.title,
+        text: 'Check out this post by Shal Rhimba',
+        url: shareUrl.toString(),
+      }).catch(() => {});
+    } else {
+      this.copyTextToClipboard(shareUrl.toString());
+      this.showCopied();
+    }
+  }
+
+  copyCurrentLink() {
+    if (this.currentPostIndex === -1) return;
+    const current = this.filteredPosts[this.currentPostIndex];
+    const shareUrl = new URL(window.location.href);
+    shareUrl.searchParams.set('post', String(current.id));
+    this.copyTextToClipboard(shareUrl.toString());
+    this.showCopied();
+  }
+
+  copyTextToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  showCopied() {
+    if (!this.copyLinkBtn) return;
+    this.copyLinkBtn.classList.add('copied');
+    const original = this.copyLinkBtn.textContent;
+    this.copyLinkBtn.textContent = 'Copied!';
+    setTimeout(() => {
+      this.copyLinkBtn.classList.remove('copied');
+      this.copyLinkBtn.textContent = original;
+    }, 1500);
   }
 
   convertToHtml(content) {
