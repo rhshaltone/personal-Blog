@@ -206,8 +206,12 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+  background: url('../images/watermark.jpeg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.15;
+  filter: grayscale(30%) contrast(1.2);
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-full::after {
@@ -217,9 +221,10 @@ header {
   right: -20%;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
+  z-index: 1;
 }
 
 @keyframes float {
@@ -232,12 +237,18 @@ header {
   margin: 0 auto;
   padding: 0 30px;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .hero-text {
   max-width: 700px;
   color: var(--text-white);
+  position: relative;
+  background: rgba(0, 102, 204, 0.05);
+  backdrop-filter: blur(5px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-text h2 {
