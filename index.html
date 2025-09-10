@@ -48,12 +48,23 @@
         <h2>Hi, I’m <strong>SHAL RIMBA</strong> 👋</h2>
         <p class="hero-intro">I'm a dedicated ICT student specializing in <strong>Cybersecurity</strong>, with a deep passion for building digital solutions, solving real-world tech problems, and staying ahead in ethical hacking. I blend creativity with technical skills to deliver impactful results.</p>
 
+        <p class="thoughts">I am <span id="thoughtsRotator"></span></p>
+
         <a href="projects.html" class="cta-button">View My Projects</a>
 
         <!-- Clock -->
         <div class="clock-wrapper">
-          <span>⏰ Local Time:</span>
-          <div id="live-clock" class="clock-box"></div>
+          <div id="live-clock" class="clock-box">
+            <div class="clock-time">
+              <span id="clockHours">--</span><span class="colon">:</span><span id="clockMinutes">--</span><span class="colon">:</span><span id="clockSeconds">--</span>
+              <span id="clockAmPm" class="ampm">--</span>
+            </div>
+            <div class="clock-info">
+              <span id="clockGreeting">Hello</span>
+              <span id="clockDate">—</span>
+              <span id="clockTZ">(TZ)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

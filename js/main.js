@@ -81,21 +81,112 @@ class BlogApp {
 
   setupLiveClock() {
     const updateClock = () => {
-      const clock = document.getElementById("live-clock");
-      if (clock) {
-        const now = new Date();
-        const options = { 
-          hour: '2-digit', 
-          minute: '2-digit', 
-          second: '2-digit',
-          hour12: false 
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      
+      // Update time elements
+      const clockHours = document.getElementById('clockHours');
+      const clockMinutes = document.getElementById('clockMinutes');
+      const clockSeconds = document.getElementById('clockSeconds');
+      const clockAmPm = document.getElementById('clockAmPm');
+      const clockGreeting = document.getElementById('clockGreeting');
+      const clockDate = document.getElementById('clockDate');
+      const clockTZ = document.getElementById('clockTZ');
+      
+      if (clockHours && clockMinutes && clockSeconds) {
+        // Format time with 12-hour format
+        const displayHours = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        clockHours.textContent = displayHours.toString().padStart(2, '0');
+        clockMinutes.textContent = minutes.toString().padStart(2, '0');
+        clockSeconds.textContent = seconds.toString().padStart(2, '0');
+        
+        if (clockAmPm) {
+          clockAmPm.textContent = ampm;
+        }
+      }
+      
+      // Dynamic greeting based on time
+      if (clockGreeting) {
+        let greeting;
+        if (hours < 6) greeting = '🌙 Good Night';
+        else if (hours < 12) greeting = '🌅 Good Morning';
+        else if (hours < 17) greeting = '☀️ Good Afternoon';
+        else if (hours < 21) greeting = '🌆 Good Evening';
+        else greeting = '🌃 Good Night';
+        
+        clockGreeting.textContent = greeting;
+      }
+      
+      // Update date
+      if (clockDate) {
+        const dateOptions = { 
+          weekday: 'short', 
+          month: 'short', 
+          day: 'numeric' 
         };
-        clock.textContent = now.toLocaleTimeString('en-US', options);
+        clockDate.textContent = now.toLocaleDateString('en-US', dateOptions);
+      }
+      
+      // Update timezone
+      if (clockTZ) {
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const shortTZ = timezone.split('/').pop().replace('_', ' ');
+        clockTZ.textContent = `(${shortTZ})`;
       }
     };
 
     setInterval(updateClock, 1000);
     updateClock();
+    
+    // Initialize thoughts rotator
+    this.setupThoughtsRotator();
+  }
+
+  setupThoughtsRotator() {
+    const thoughtsElement = document.getElementById('thoughtsRotator');
+    if (!thoughtsElement) return;
+    
+    const thoughts = [
+      'building secure digital experiences 🔐',
+      'passionate about cybersecurity 🛡️',
+      'learning ethical hacking techniques 💻',
+      'creating innovative web solutions 🚀',
+      'protecting digital communities 🌐',
+      'mastering Linux systems 🐧',
+      'developing modern applications ✨',
+      'studying network security 🔍',
+      'crafting clean code daily 📝',
+      'exploring new technologies 🔧',
+      'dedicated to continuous learning 📚',
+      'building the future of tech 🌟'
+    ];
+    
+    let currentIndex = 0;
+    
+    const rotateThought = () => {
+      thoughtsElement.style.opacity = '0';
+      thoughtsElement.style.transform = 'translateY(20px)';
+      
+      setTimeout(() => {
+        thoughtsElement.textContent = thoughts[currentIndex];
+        thoughtsElement.style.opacity = '1';
+        thoughtsElement.style.transform = 'translateY(0)';
+        currentIndex = (currentIndex + 1) % thoughts.length;
+      }, 300);
+    };
+    
+    // Set initial thought
+    thoughtsElement.textContent = thoughts[0];
+    thoughtsElement.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    // Start rotation after initial delay
+    setTimeout(() => {
+      setInterval(rotateThought, 3500);
+    }, 2000);
   }
 
   setupScrollFeatures() {
@@ -204,6 +295,20 @@ class BlogApp {
   }
 
   addAnimations() {
+    // Subtle parallax effect for hero background
+    const hero = document.querySelector('.hero-full');
+    if (hero) {
+      hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.setProperty('transform', `translate3d(${x * 5}px, ${y * 5}px, 0)`);
+      });
+      hero.addEventListener('mouseleave', () => {
+        hero.style.setProperty('transform', 'translate3d(0, 0, 0)');
+      });
+    }
+
     // Intersection Observer for scroll animations
     const observerOptions = {
       root: null,

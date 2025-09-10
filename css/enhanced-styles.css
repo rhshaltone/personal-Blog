@@ -207,11 +207,18 @@ header {
   right: 0;
   bottom: 0;
   background: url('../images/watermark.jpeg') no-repeat center center;
-  background-size: contain;
-  opacity: 0.15;
-  filter: grayscale(30%) contrast(1.2);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  filter: grayscale(15%) contrast(1.3) brightness(1.1);
   pointer-events: none;
   z-index: 0;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
 }
 
 .hero-full::after {
@@ -241,14 +248,15 @@ header {
 }
 
 .hero-text {
-  max-width: 700px;
+  max-width: 800px;
   color: var(--text-white);
   position: relative;
-  background: rgba(0, 102, 204, 0.05);
-  backdrop-filter: blur(5px);
-  padding: 40px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 102, 204, 0.08);
+  backdrop-filter: blur(15px);
+  padding: 50px 40px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
 }
 
 .hero-text h2 {
@@ -308,28 +316,119 @@ header {
   transform: translateX(5px);
 }
 
-/* Clock Enhancement */
-.clock-wrapper {
-  margin-top: 50px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1.1rem;
+/* Thoughts Rotator */
+.thoughts {
+  font-size: 1.3rem;
+  margin: 25px 0;
+  text-align: center;
   opacity: 0;
-  animation: slideUpFade 1s ease 1.4s forwards;
+  animation: slideUpFade 1s ease 1.1s forwards;
+}
+
+#thoughtsRotator {
+  font-weight: 700;
+  color: var(--secondary-color);
+  background: linear-gradient(45deg, #00c896, #00ff9f, #00c896);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  min-height: 1.5rem;
+  display: inline-block;
+  min-width: 200px;
+  text-align: left;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Enhanced Clock */
+.clock-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: slideUpFade 1s ease 1.6s forwards;
 }
 
 .clock-box {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  padding: 10px 20px;
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  padding: 20px 30px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.clock-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+  animation: shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.clock-time {
   font-family: var(--font-code);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(0, 200, 150, 0.3);
+}
+
+.clock-time .colon {
+  animation: blink 2s ease-in-out infinite;
+  color: rgba(255,255,255,0.8);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.clock-time .ampm {
+  font-size: 0.8rem;
+  margin-left: 8px;
+  color: rgba(255,255,255,0.9);
+  vertical-align: super;
+}
+
+.clock-info {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+#clockGreeting {
   font-weight: 600;
   color: var(--secondary-color);
-  min-width: 120px;
-  text-align: center;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 /* =================== ANIMATIONS =================== */
