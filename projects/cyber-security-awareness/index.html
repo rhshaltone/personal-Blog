@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Awareness - Shal Rhimba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1><i class="fas fa-shield-alt"></i> Cybersecurity Awareness</h1>
+                <p>Stay Safe in the Digital World - Learn, Practice, Protect</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>4.1 billion</strong>
+                        <span>Records exposed in 2019</span>
+                    </div>
+                    <div class="stat">
+                        <strong>$3.86M</strong>
+                        <span>Average data breach cost</span>
+                    </div>
+                    <div class="stat">
+                        <strong>95%</strong>
+                        <span>Breaches due to human error</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="module-nav">
+            <button class="nav-btn active" data-module="threats">
+                <i class="fas fa-bug"></i> Common Threats
+            </button>
+            <button class="nav-btn" data-module="passwords">
+                <i class="fas fa-key"></i> Password Security
+            </button>
+            <button class="nav-btn" data-module="phishing">
+                <i class="fas fa-fish"></i> Phishing Awareness
+            </button>
+            <button class="nav-btn" data-module="safe-browsing">
+                <i class="fas fa-globe"></i> Safe Browsing
+            </button>
+            <button class="nav-btn" data-module="quiz">
+                <i class="fas fa-question-circle"></i> Security Quiz
+            </button>
+        </nav>
+
+        <main class="content-area">
+            <!-- Common Threats Module -->
+            <div class="module active" id="threats">
+                <h2><i class="fas fa-exclamation-triangle"></i> Common Cybersecurity Threats</h2>
+                
+                <div class="threat-grid">
+                    <div class="threat-card">
+                        <div class="threat-icon">
+                            <i class="fas fa-virus"></i>
+                        </div>
+                        <h3>Malware</h3>
+                        <p>Malicious software designed to harm your computer or steal data</p>
+                        <div class="prevention">
+                            <strong>Prevention:</strong>
+                            <ul>
+                                <li>Use antivirus software</li>
+                                <li>Keep software updated</li>
+                                <li>Avoid suspicious downloads</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="threat-card">
+                        <div class="threat-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Social Engineering</h3>
+                        <p>Manipulating people to reveal confidential information</p>
+                        <div class="prevention">
+                            <strong>Prevention:</strong>
+                            <ul>
+                                <li>Verify identity before sharing info</li>
+                                <li>Be skeptical of urgent requests</li>
+                                <li>Never give passwords over phone</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="threat-card">
+                        <div class="threat-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>Unsecured Wi-Fi</h3>
+                        <p>Public networks that can expose your data to attackers</p>
+                        <div class="prevention">
+                            <strong>Prevention:</strong>
+                            <ul>
+                                <li>Use VPN on public Wi-Fi</li>
+                                <li>Avoid accessing sensitive accounts</li>
+                                <li>Turn off auto-connect</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="threat-card">
+                        <div class="threat-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Ransomware</h3>
+                        <p>Malware that encrypts files and demands payment</p>
+                        <div class="prevention">
+                            <strong>Prevention:</strong>
+                            <ul>
+                                <li>Regular backups</li>
+                                <li>Email security training</li>
+                                <li>Network segmentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password Security Module -->
+            <div class="module" id="passwords">
+                <h2><i class="fas fa-key"></i> Password Security</h2>
+                
+                <div class="password-section">
+                    <div class="password-checker">
+                        <h3>Password Strength Checker</h3>
+                        <input type="password" id="passwordInput" placeholder="Enter a password to test its strength">
+                        <div class="strength-meter">
+                            <div class="strength-bar" id="strengthBar"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">Enter a password</div>
+                        <div class="password-tips" id="passwordTips"></div>
+                    </div>
+
+                    <div class="password-guidelines">
+                        <h3>Strong Password Guidelines</h3>
+                        <div class="guideline-grid">
+                            <div class="guideline">
+                                <i class="fas fa-check-circle"></i>
+                                <span>At least 12 characters long</span>
+                            </div>
+                            <div class="guideline">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mix of uppercase and lowercase</span>
+                            </div>
+                            <div class="guideline">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Include numbers and symbols</span>
+                            </div>
+                            <div class="guideline">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Avoid dictionary words</span>
+                            </div>
+                            <div class="guideline">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Unique for each account</span>
+                            </div>
+                            <div class="guideline">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Use a password manager</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-factor-section">
+                    <h3><i class="fas fa-mobile-alt"></i> Two-Factor Authentication (2FA)</h3>
+                    <p>Add an extra layer of security to your accounts</p>
+                    <div class="two-factor-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Blocks 99.9% of automated attacks</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-clock"></i>
+                            <span>Real-time breach alerts</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-lock"></i>
+                            <span>Protects even if password is stolen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phishing Awareness Module -->
+            <div class="module" id="phishing">
+                <h2><i class="fas fa-fish"></i> Phishing Awareness</h2>
+                
+                <div class="phishing-intro">
+                    <p>Phishing attacks trick you into revealing personal information through fake emails, websites, or messages.</p>
+                </div>
+
+                <div class="phishing-examples">
+                    <h3>Spot the Phishing Email</h3>
+                    <div class="email-example">
+                        <div class="email-header">
+                            <strong>From:</strong> security-team@paypaI.com <span class="warning">(Notice the 'I' instead of 'l')</span><br>
+                            <strong>Subject:</strong> URGENT: Your account will be suspended!
+                        </div>
+                        <div class="email-body">
+                            <p>Dear Customer,</p>
+                            <p>We detected suspicious activity on your account. Click here immediately to verify your identity or your account will be suspended within 24 hours!</p>
+                            <button class="phishing-btn">Verify Account Now</button>
+                            <p class="email-signature">PayPal Security Team</p>
+                        </div>
+                        <div class="phishing-indicators">
+                            <h4>🚨 Red Flags:</h4>
+                            <ul>
+                                <li>Urgent language and threats</li>
+                                <li>Misspelled domain (paypaI vs paypal)</li>
+                                <li>Generic greeting</li>
+                                <li>Suspicious call-to-action button</li>
+                                <li>Poor grammar and formatting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phishing-protection">
+                    <h3>How to Protect Yourself</h3>
+                    <div class="protection-grid">
+                        <div class="protection-tip">
+                            <i class="fas fa-search"></i>
+                            <h4>Verify the Sender</h4>
+                            <p>Check email addresses carefully for misspellings or suspicious domains</p>
+                        </div>
+                        <div class="protection-tip">
+                            <i class="fas fa-link"></i>
+                            <h4>Hover Before Clicking</h4>
+                            <p>Hover over links to see where they actually lead before clicking</p>
+                        </div>
+                        <div class="protection-tip">
+                            <i class="fas fa-phone"></i>
+                            <h4>Contact Directly</h4>
+                            <p>If unsure, contact the company directly using official contact information</p>
+                        </div>
+                        <div class="protection-tip">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Use Browser Security</h4>
+                            <p>Keep your browser updated and use security extensions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safe Browsing Module -->
+            <div class="module" id="safe-browsing">
+                <h2><i class="fas fa-globe"></i> Safe Browsing Practices</h2>
+                
+                <div class="browsing-tips">
+                    <div class="tip-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Check for HTTPS</h3>
+                        <p>Always look for the padlock icon and "https://" before entering sensitive information</p>
+                        <div class="example">
+                            <div class="url secure">
+                                <i class="fas fa-lock"></i> https://secure-site.com
+                                <span class="status secure">✓ Secure</span>
+                            </div>
+                            <div class="url insecure">
+                                <i class="fas fa-exclamation-triangle"></i> http://unsecure-site.com
+                                <span class="status insecure">⚠ Not Secure</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <i class="fas fa-download"></i>
+                        <h3>Download Safety</h3>
+                        <p>Only download software from official sources and scan files before opening</p>
+                        <div class="download-checklist">
+                            <div class="checklist-item">
+                                <i class="fas fa-check"></i>
+                                <span>Verify publisher/developer</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check"></i>
+                                <span>Read user reviews</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check"></i>
+                                <span>Scan with antivirus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <i class="fas fa-ad"></i>
+                        <h3>Avoid Malicious Ads</h3>
+                        <p>Use ad blockers and be cautious of too-good-to-be-true offers</p>
+                        <div class="ad-examples">
+                            <div class="fake-ad">
+                                <span class="blink">🎉 You've WON! Click HERE! 🎉</span>
+                                <small>Typical scam ad</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Quiz Module -->
+            <div class="module" id="quiz">
+                <h2><i class="fas fa-question-circle"></i> Cybersecurity Knowledge Quiz</h2>
+                
+                <div class="quiz-container">
+                    <div class="quiz-intro">
+                        <p>Test your cybersecurity knowledge with this interactive quiz!</p>
+                        <button id="startQuiz" class="quiz-btn">Start Quiz</button>
+                    </div>
+
+                    <div class="quiz-content" style="display: none;">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressBar"></div>
+                            </div>
+                            <span id="questionCounter">Question 1 of 10</span>
+                        </div>
+
+                        <div class="question-container" id="questionContainer">
+                            <!-- Questions will be dynamically loaded here -->
+                        </div>
+
+                        <div class="quiz-navigation">
+                            <button id="prevBtn" class="nav-btn" disabled>Previous</button>
+                            <button id="nextBtn" class="nav-btn">Next</button>
+                            <button id="submitBtn" class="submit-btn" style="display: none;">Submit Quiz</button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-results" id="quizResults" style="display: none;">
+                        <!-- Results will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="resources-section">
+            <h2><i class="fas fa-book"></i> Additional Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security Tools</h3>
+                    <ul>
+                        <li><a href="https://haveibeenpwned.com" target="_blank">Have I Been Pwned</a></li>
+                        <li><a href="https://www.virustotal.com" target="_blank">VirusTotal</a></li>
+                        <li><a href="https://www.google.com/safebrowsing/diagnostic" target="_blank">Safe Browsing</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Learning</h3>
+                    <ul>
+                        <li><a href="https://www.cybrary.it" target="_blank">Cybrary</a></li>
+                        <li><a href="https://www.sans.org/security-awareness-training/" target="_blank">SANS Training</a></li>
+                        <li><a href="https://www.coursera.org/browse/information-technology/security" target="_blank">Coursera Security</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>Stay Updated</h3>
+                    <ul>
+                        <li><a href="https://krebsonsecurity.com" target="_blank">Krebs on Security</a></li>
+                        <li><a href="https://www.darkreading.com" target="_blank">Dark Reading</a></li>
+                        <li><a href="https://www.bleepingcomputer.com" target="_blank">Bleeping Computer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with 🔒 for digital safety by <a href="../../index.html">Shal Rhimba</a></p>
+            <p><a href="../../projects.html">← Back to Projects</a></p>
+            <p class="disclaimer">This educational platform is designed to raise cybersecurity awareness. Always consult with security professionals for specific security implementations.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
