@@ -3,53 +3,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shal Rhimba Blog - Stories, tutorials, and insights on cybersecurity, Linux, and web projects." />
   <title>Blog - Shal Rhimba</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/enhanced-styles.css" />
 </head>
-<body class="blog-page">
-  <div class="page-wrapper">
-    <header>
-      <nav>
-        <h1>Shal Rhimba</h1>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-    <main class="blog-section">
-      <h2 class="section-title">📝 My Tech Journey Blog</h2>
-      <p class="blog-intro">Here’s where I document my journey, projects, lessons, and experiences in ICT and cybersecurity.</p>
-      <div class="blog-grid">
-        <article class="blog-post">
-  <h3><a href="blog-detail.html">📚 My First Year in Cybersecurity</a></h3>
-  <p>Exploring Linux, networking, and ethical hacking. It's a deep journey into protecting systems and data.</p>
-</article>
-
-<article class="blog-post">
-  <h3><a href="ecolens-story.html">🌍 Why I Built EcoLens</a></h3>
-  <p>Using tech to promote environmental awareness through photography.</p>
-</article>
-
-<article class="blog-post">
-  <h3><a href="learning-linux.html">🐧 What Linux Taught Me</a></h3>
-  <p>Lessons from using the terminal, troubleshooting, and system management.</p>
-</article>
-
-<article class="blog-post">
-  <h3><a href="why-cyber.html">🔐 Why I Chose Cybersecurity</a></h3>
-  <p>A calling to defend digital spaces and build cyber trust in Africa.</p>
-</article>
-
-      </div>
-    </main>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <span>Email: rhimbashaltone@gmail.com</span>
+    <span>Phone: 0111819808</span>
   </div>
 
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">SHAL RIMBA</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+      <div class="container">
+        <h2>📝 My Tech Journey Blog</h2>
+        <p class="subtitle">Documenting my learning, projects, and experiences in ICT and cybersecurity.</p>
+
+        <div class="blog-controls card">
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search posts (e.g., Linux, cybersecurity, projects)..." aria-label="Search blog posts" />
+          </div>
+          <div class="filters">
+            <div class="tags" id="tagsContainer">
+              <!-- Tags dynamically inserted here -->
+            </div>
+            <select id="sortSelect" aria-label="Sort posts">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="az">Title A–Z</option>
+              <option value="za">Title Z–A</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-listing">
+      <div class="container">
+        <div id="postsGrid" class="posts-grid">
+          <!-- Posts dynamically rendered here -->
+        </div>
+
+        <div class="pagination" id="pagination">
+          <!-- Pagination controls dynamically rendered here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reader Modal -->
+  <div id="readerModal" class="reader-modal" aria-hidden="true">
+    <div class="reader-backdrop" id="readerBackdrop"></div>
+    <div class="reader-content card" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+      <button class="reader-close" id="readerClose" aria-label="Close">✕</button>
+      <h3 id="readerTitle"></h3>
+      <div class="reader-meta" id="readerMeta"></div>
+      <article id="readerBody" class="reader-body"></article>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Shal Rhimba | All rights reserved.</p>
   </footer>
+
+  <!-- Scroll To Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
 </body>
 </html>  
