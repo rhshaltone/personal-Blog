@@ -2,65 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About Shal Rhimba - ICT and Cybersecurity student passionate about digital security and web development."/>
   <title>About Me - Shal Rhimba</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/enhanced-styles.css" />
 </head>
-<body class="about-page">
-  <div class="page-wrapper">
-    <header>
-      <nav>
-        <h1>Shal Rhimba</h1>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-    <main class="about-section">
-      <div class="about-container">
-        <!-- PROFILE IMAGE WITH FADE -->
-        <div class="about-image fade-in">
-          <img src="images/shal.jpeg" alt="Shal Rhimba" />
-        </div>
-
-        <!-- TEXT CONTENT WITH FADE -->
-        <div class="about-text fade-in">
-          <h2>About Me</h2>
-          <p>
-            Hey! I'm <strong>Shaltone Rhimba</strong>, currently pursuing a diploma in 
-            <strong>ICT with a focus on Cybersecurity</strong> at Daystar University.
-            I’m passionate about building clean digital experiences, learning ethical hacking, 
-            and using tech to solve real-world problems.
-          </p>
-
-          <h3>🎓 Education</h3>
-          <hr />
-          <ul>
-            <li><strong>Institution:</strong> Daystar University</li>
-            <li><strong>Program:</strong> Diploma in ICT (Cybersecurity)</li>
-            <li><strong>Year:</strong> 2025 - Present</li>
-          </ul>
-
-          <h3>🎯 Goals</h3>
-          <hr />
-          <p>
-            My goal is to become a cybersecurity analyst and help protect digital spaces in Africa and beyond.
-            I also enjoy working on creative side-projects and helping others learn tech along the way.
-          </p>
-
-          <hr />
-          <p><em>🎉 Fun fact: I play table tennis on weekends and manage several creative projects online.</em></p>
-        </div>
-      </div>
-    </main>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <span>Email: rhimbashaltone@gmail.com</span>
+    <span>Phone: 0111819808</span>
   </div>
 
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">SHAL RIMBA</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="about-hero-content">
+        <div class="about-profile">
+          <div class="profile-image-container">
+            <img src="images/shal.jpeg" alt="Shal Rhimba - Cybersecurity Student" class="profile-image" />
+            <div class="status-indicator online"></div>
+          </div>
+          <div class="profile-info">
+            <h1>Shaltone Rhimba</h1>
+            <p class="title">ICT & Cybersecurity Student</p>
+            <p class="location">📍 Nairobi, Kenya</p>
+            <div class="social-links">
+              <a href="mailto:rhimbashaltone@gmail.com" class="social-btn">
+                <i class="fas fa-envelope"></i> Email
+              </a>
+              <a href="https://wa.me/254111819808" class="social-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+      <div class="container">
+        <div class="content-grid">
+          <!-- About Text -->
+          <div class="about-text card">
+            <h2>About Me</h2>
+            <p>
+              Hey! I'm <strong>Shaltone Rhimba</strong>, a passionate ICT student specializing in 
+              <strong>Cybersecurity</strong> at Daystar University. I'm dedicated to protecting digital 
+              spaces and building secure, innovative solutions that make a difference.
+            </p>
+            <p>
+              My journey in technology combines academic excellence with hands-on experience in 
+              web development, cybersecurity, and ethical hacking. I believe in using technology 
+              as a force for positive change in our communities.
+            </p>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="quick-stats card">
+            <h3>Quick Stats</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2025</div>
+                <div class="stat-label">Started Studies</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Passion Level</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skills-section card">
+          <h2>🛠️ Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Cybersecurity</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Ethical Hacking</span>
+                <span class="skill-tag">Network Security</span>
+                <span class="skill-tag">Risk Assessment</span>
+                <span class="skill-tag">Security Awareness</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>Web Development</h3>
+              <div class="skills-list">
+                <span class="skill-tag">HTML5 & CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">API Integration</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>Tools & Technologies</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Database Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Experience -->
+        <div class="timeline-section">
+          <h2>🎓 Education & Journey</h2>
+          <div class="timeline">
+            <div class="timeline-item card">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>Diploma in ICT (Cybersecurity)</h3>
+                  <span class="timeline-date">2025 - Present</span>
+                </div>
+                <p><strong>Daystar University</strong></p>
+                <p>Specializing in cybersecurity with focus on ethical hacking, network security, and digital forensics.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item card">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>Web Development Projects</h3>
+                  <span class="timeline-date">2024 - Present</span>
+                </div>
+                <p><strong>Self-Directed Learning</strong></p>
+                <p>Built multiple web applications including weather apps, environment galleries, and cybersecurity awareness platforms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goals & Interests -->
+        <div class="goals-section">
+          <div class="content-grid">
+            <div class="goals-content card">
+              <h2>🎯 Professional Goals</h2>
+              <ul class="goals-list">
+                <li>Become a certified cybersecurity analyst</li>
+                <li>Contribute to digital security in African organizations</li>
+                <li>Develop innovative security solutions</li>
+                <li>Help educate others about cybersecurity best practices</li>
+                <li>Build a career in ethical hacking and penetration testing</li>
+              </ul>
+            </div>
+
+            <div class="interests-content card">
+              <h2>🌟 Interests & Hobbies</h2>
+              <div class="interests-grid">
+                <div class="interest-item">
+                  <i class="fas fa-table-tennis"></i>
+                  <span>Table Tennis</span>
+                </div>
+                <div class="interest-item">
+                  <i class="fas fa-book-open"></i>
+                  <span>Continuous Learning</span>
+                </div>
+                <div class="interest-item">
+                  <i class="fas fa-code"></i>
+                  <span>Open Source</span>
+                </div>
+                <div class="interest-item">
+                  <i class="fas fa-users"></i>
+                  <span>Community Building</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta card">
+          <h2>Let's Connect!</h2>
+          <p>Interested in collaborating or just want to say hi? I'd love to hear from you!</p>
+          <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+            <a href="projects.html" class="btn btn-secondary">View My Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Shal Rhimba | All rights reserved.</p>
+    <p>&copy; 2025 Shal Rhimba. All rights reserved.</p>
   </footer>
+
+  <!-- Scroll To Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
   <script src="js/main.js"></script>
 </body>
 </html>
